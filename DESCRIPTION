@@ -1,0 +1,36 @@
+Package: MoPlot
+Date: 2025-07-18
+Title: "MoPlot: Visualization of Contrast-Based Statistical Models"
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Umberto",
+           family = "Granziol",
+           role = c("aut", "cre"),
+           email = "umberto.granziol@unipd.it",
+           comment = c(ORCID = "0000-0002-6286-6569")),
+    person(given = "Marianna",
+           family = "Musa",
+           role = c("aut"),
+           email = "marianna.musa@phd.unipd.it",
+           comment = c(ORCID = "0009-0000-8791-1218")),
+    person(given = "Lorenzo",
+           family = "Atzeni",
+           role = c("aut"),
+           email = "lorenzo.azteni@phd.unipd.it",
+           comment = c(ORCID = "0009-0006-5307-9201")),
+    person(given = "Stefano",
+           family = "Dalla Bona",
+           role = c("aut"),
+           email = "stefano.dallabona@phd.unipd.it",
+           comment = c(ORCID = "0009-0006-7749-3642"))
+           )
+Description: MoPlot is an R package designed to visualize linear models that include categorical predictors. It enhances the interpretability of complex model outputs through clear and intuitive graphical representations, with a particular focus on the contrasts used for categorical variables. By highlighting these contrasts, MoPlot helps users better understand the specific comparisons underlying model estimates.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    stats
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
