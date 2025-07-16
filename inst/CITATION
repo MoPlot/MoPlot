@@ -1,0 +1,12 @@
+bibentry(
+  bibtype = "Manual",
+  title = "MoPlot: Visualization of Contrast-Based Statistical Models",
+  author = c(
+    person("Umberto", "Granziol"),
+    person("Marianna", "Musa"),
+    person("Lorenzo", "Atzeni"),
+    person("Stefano", "Dalla Bona")
+  ),
+  note = "R package version 0.0.0.9000",
+  year = "2025"
+)
