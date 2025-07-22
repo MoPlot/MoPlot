@@ -23,9 +23,9 @@
 #'
 #' @examples
 #' # Creating a linear model with the generative function
-#' DT <- GenerateDataset1IV(n_sample = 30, means = c(120, 135, 115), sds = 20)
-#' DT$iv <- as.factor(DT$iv)
-#' model <- lm(dv ~ iv, data = DT)
+#' DT <- DatasetOne(n_sample = 30, means = c(120, 135, 115), sds = 20)
+#' DT$Ind <- as.factor(DT$Ind)
+#' model <- lm(Dep ~ Ind, data = DT)
 #'
 #' # Without specifing the additional parameters (All tables by default)
 #' ModelContrastTable(model)
