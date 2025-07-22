@@ -6,6 +6,7 @@
 #'
 #' @return A data frame.
 #'
+#' @importFrom magrittr %>%
 #' @keywords internal
 ExtractParams <- function(model) {
   summ <- summary(model)

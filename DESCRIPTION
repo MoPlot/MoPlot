@@ -34,12 +34,12 @@ Imports:
     effectsize,
     ggplot2,
     hypr,
+    magrittr,
     MASS,
     parameters,
     patchwork,
     stats,
-    viridis,
-    magrittr
+    viridis
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
