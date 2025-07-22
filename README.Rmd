@@ -27,17 +27,75 @@ MoPlot is an R package designed to visualize linear models that include categori
 You can install the development version of MoPlot like so:
 
 ``` r
-devtools::install.package("MoPlot/MoPlot")
+devtools::install_github("Moplot/Moplot")
 ```
 
-## Example
+## MoPlotOneWay
 
-This is a basic example which shows you how to solve a common problem:
+`MoPlotOneWay()` is a function for visualizing the results of a linear model with one categorical predictor and one numeric dependent variable. It takes as input a model created with `lm()` and produces a plot that highlights group means with their associated uncertainty using bars, and visually emphasizes significant contrasts through colored lines. Optionally, the raw data points can be displayed in the plot. A secondary panel shows the model coefficients, including standardized beta values and effect sizes such as Cohen’s *d*, allowing for a clear and informative summary of the model's findings.
 
-```r 
+### Treatment coding
+
+Treatment coding schema, without data and coefficients, sig.level at .05
+```{r, fig.height=7, fig.width=12} 
 library(MoPlot)
-## basic example code
+
+# Using Iris data
+data(iris)
+iris$Species <- factor(iris$Species)
+contrasts(iris$Species) <- contr.treatment(3)
+
+# Fit the model
+model <- lm(Sepal.Length ~ Species, data = iris)
+
+# MoPlotting treatment
+MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
 ```
 
+Treatment coding schema, with data and coefficients, sig.level at .05
+```{r, fig.height=7, fig.width=12, warning=FALSE} 
+# MoPlotting
+MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.05)
+```
 
-_
+### Sum coding
+
+Sum coding schema, without data and coefficients, sig.level at .1
+```{r, fig.height=7, fig.width=12} 
+# Using Sum coding
+contrasts(iris$Species) <- contr.sum(3)
+
+# Fit the model
+model <- lm(Sepal.Length ~ Species, data = iris)
+
+# MoPlotting sum
+MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.1)
+```
+
+Sum coding schema, with data and coefficients, sig.level at .1
+```{r, fig.height=7, fig.width=12, warning=FALSE} 
+# MoPlotting sum
+MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.1)
+```
+
+### Helmert coding
+
+Helmert coding schema, without data and coefficients, sig.level at .05
+```{r, fig.height=7, fig.width=12} 
+# Using a custom function to generate data with four groups
+DT <- DatasetOne(n_sample = 20, means = c(120, 135, 115, 120), sds = 20)
+DT$Ind <- as.factor(DT$Ind)
+contrasts(DT$Ind) <- contr.helmert(4)
+
+# Fit the model
+model <- lm(Dep ~ Ind, data = DT)
+
+# MoPlotting sum
+MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
+```
+
+Helmert coding schema, with data and coefficients, sig.level at .2
+```{r, fig.height=7, fig.width=12, warning=FALSE} 
+# MoPlotting sum
+MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.2)
+```
