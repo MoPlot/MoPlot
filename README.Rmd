@@ -34,7 +34,7 @@ devtools::install_github("Moplot/Moplot")
 
 `MoPlotOneWay()` is a function for visualizing the results of a linear model with one categorical predictor and one numeric dependent variable. It takes as input a model created with `lm()` and produces a plot that highlights group means with their associated uncertainty using bars, and visually emphasizes significant contrasts through colored lines. Optionally, the raw data points can be displayed in the plot. A secondary panel shows the model coefficients, including standardized beta values and effect sizes such as Cohen’s *d*, allowing for a clear and informative summary of the model's findings.
 
-### Treatment coding
+### Default Treatment coding
 
 Treatment coding schema, without data and coefficients, sig.level at .05
 ```{r, fig.height=7, fig.width=12} 
