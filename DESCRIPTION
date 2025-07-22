@@ -16,7 +16,7 @@ Authors@R: c(
     person(given = "Lorenzo",
            family = "Atzeni",
            role = c("aut"),
-           email = "lorenzo.azteni@phd.unipd.it",
+           email = "lorenzo.atzeni@phd.unipd.it",
            comment = c(ORCID = "0009-0006-5307-9201")),
     person(given = "Stefano",
            family = "Dalla Bona",
