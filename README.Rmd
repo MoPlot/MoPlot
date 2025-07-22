@@ -27,7 +27,7 @@ MoPlot is an R package designed to visualize linear models that include categori
 You can install the development version of MoPlot like so:
 
 ``` r
-devtools::install.package("MoPlot")
+devtools::install.package("MoPlot/MoPlot")
 ```
 
 ## Example
