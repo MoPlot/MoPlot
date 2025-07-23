@@ -174,4 +174,13 @@ MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
 With raw data and coefficient panel:
 ```{r, fig.height=7, fig.width=12, warning=FALSE} 
 MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.05)
+MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.05, facet.pers = F)
+
+```
+
+
+Without faceting:
+
+```{r, fig.height=7, fig.width=12, warning=FALSE} 
+MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.05, facet.pers = F)
 ```
