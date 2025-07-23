@@ -68,13 +68,13 @@
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"Moplot/Moplot"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="moplotoneway">MoPlotOneWay<a class="anchor" aria-label="anchor" href="#moplotoneway"></a>
+<h2 id="id_1-moplotoneway">1. MoPlotOneWay<a class="anchor" aria-label="anchor" href="#id_1-moplotoneway"></a>
 </h2>
-<p><code><a href="reference/MoPlotOneWay.html">MoPlotOneWay()</a></code> is a function for visualizing the results of a linear model with one categorical predictor and one numeric dependent variable. It takes as input a model created with <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> and produces a plot that highlights group means with their associated uncertainty using bars, and visually emphasizes significant contrasts through colored lines. Optionally, the raw data points can be displayed in the plot. A secondary panel shows the model coefficients, including standardized beta values and effect sizes such as Cohen’s <em>d</em>, allowing for a clear and informative summary of the model’s findings.</p>
+<p><code><a href="reference/MoPlotOneWay.html">MoPlotOneWay()</a></code> is a function for visualizing the results of a linear model with one categorical predictor and one numeric dependent variable. It takes as input a model created with <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> and produces a plot that highlights group means with their associated uncertainty using bars, and visually emphasizes significant contrasts through colored lines. Optionally, the raw data points can be displayed in the plot. A secondary panel shows the model coefficients, including standardized beta values and effect sizes such as Cohen’s <em>d</em>, allowing for a clear and informative summary of the model’s findings. <code><a href="reference/MoPlotOneWay.html">MoPlotOneWay()</a></code> function supports a variety of contrast coding schemes for categorical predictors, including treatment coding (dummy coding), sum to zero coding, Helmert coding, reverse Helmert coding, polynomial coding, sliding difference coding, and customized coding.</p>
 <div class="section level3">
-<h3 id="treatment-coding">Treatment coding<a class="anchor" aria-label="anchor" href="#treatment-coding"></a>
+<h3 id="id_11-default-treatment-coding">1.1 Default Treatment coding<a class="anchor" aria-label="anchor" href="#id_11-default-treatment-coding"></a>
 </h3>
-<p>Treatment coding schema, without data and coefficients, sig.level at .05</p>
+<p>Treatment coding, or dummy coding is a common way to represent categorical variables in regression models. It transforms a categorical predictor with k levels into k − 1 binary (0/1) variables, each comparing one level to a reference (baseline) category. The following example uses the classic iris dataset with treatment contrasts and shows the plot without raw data points or coefficient panel, using a significance level of 0.05:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/MoPlot/MoPlot">MoPlot</a></span><span class="op">)</span></span>
 <span></span>
@@ -86,7 +86,7 @@
 <span><span class="co"># Fit the model</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">Species</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># MoPlotting treatment</span></span>
+<span><span class="co"># MoPlotting</span></span>
 <span><span class="fu"><a href="reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">FALSE</span>, coef <span class="op">=</span> <span class="cn">FALSE</span>, siglevel <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; This graphical representation illustrates the linear model, where</span></span>
 <span><span class="co">#&gt;  Species is the categorical predictor (represented on the x-axis with its levels),</span></span>
@@ -98,7 +98,7 @@
 <span><span class="co">#&gt;  The dashed purple line marks the baseline expected value.</span></span>
 <span><span class="co">#&gt;  Green lines highlight significant contrasts, with a significance threshold of 0.05 for the first type of error.</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<p>Treatment coding schema, with data and coefficients, sig.level at .05</p>
+<p>Here is the same plot, but including raw data points and the coefficient panel, also with a 0.05 significance level:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># MoPlotting</span></span>
 <span><span class="fu"><a href="reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">TRUE</span>, coef <span class="op">=</span> <span class="cn">TRUE</span>, siglevel <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
@@ -114,9 +114,9 @@
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
 <div class="section level3">
-<h3 id="sum-coding">Sum coding<a class="anchor" aria-label="anchor" href="#sum-coding"></a>
+<h3 id="id_12-sum-coding">1.2 Sum coding<a class="anchor" aria-label="anchor" href="#id_12-sum-coding"></a>
 </h3>
-<p>Sum coding schema, without data and coefficients, sig.level at .1</p>
+<p>Sum coding is another way to represent categorical variables in regression models. Unlike treatment coding, sum coding compares each level to the overall mean rather than a specific reference group. The following example uses again the iris dataset with sum contrasts, showing the plot without raw data points or coefficient panel at a significance level of 0.1</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using Sum coding</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/contrasts.html" class="external-link">contrasts</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/contrast.html" class="external-link">contr.sum</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
@@ -124,7 +124,7 @@
 <span><span class="co"># Fit the model</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">Species</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># MoPlotting sum</span></span>
+<span><span class="co"># MoPlotting</span></span>
 <span><span class="fu"><a href="reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">FALSE</span>, coef <span class="op">=</span> <span class="cn">FALSE</span>, siglevel <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; This graphical representation depicts the linear model, with</span></span>
 <span><span class="co">#&gt;  Species as the categorical predictor (levels shown on the x-axis),</span></span>
@@ -136,16 +136,16 @@
 <span><span class="co">#&gt;  The dashed purple line marks the intercept expected value.</span></span>
 <span><span class="co">#&gt;  The green error bars highlight significant contrasts, with 0.1 as the threshold for the first type of error.</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
-<p>Sum coding schema, with data and coefficients, sig.level at .1</p>
+<p>Here is the same plot including raw data points and the coefficient panel:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># MoPlotting sum</span></span>
+<code class="sourceCode R"><span><span class="co"># MoPlotting</span></span>
 <span><span class="fu"><a href="reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">TRUE</span>, coef <span class="op">=</span> <span class="cn">TRUE</span>, siglevel <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
 </div>
 <div class="section level3">
-<h3 id="helmert-coding">Helmert coding<a class="anchor" aria-label="anchor" href="#helmert-coding"></a>
+<h3 id="id_13-helmert-coding">1.3 Helmert coding<a class="anchor" aria-label="anchor" href="#id_13-helmert-coding"></a>
 </h3>
-<p>Helmert coding schema, without data and coefficients, sig.level at .05</p>
+<p>Helmert coding is a contrast coding scheme where each level of a categorical variable is compared to the mean of previous levels. The following example uses a generated dataset (using <code><a href="reference/DatasetOne.html">DatasetOne()</a></code>) with Helmert contrasts. It first shows a plot without raw data points or coefficient panel at a significance level of 0.05:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using a custom function to generate data with four groups</span></span>
 <span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/DatasetOne.html">DatasetOne</a></span><span class="op">(</span>n_sample <span class="op">=</span> <span class="fl">20</span>, means <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">135</span>, <span class="fl">115</span>, <span class="fl">120</span><span class="op">)</span>, sds <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
@@ -168,7 +168,7 @@
 <span><span class="co">#&gt;  The dashed purple line marks the baseline expected value.</span></span>
 <span><span class="co">#&gt;  Green lines highlight significant contrasts, with 0.05 serving as the threshold for the first type of error.</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
-<p>Helmert coding schema, with data and coefficients, sig.level at .2</p>
+<p>Here is the same plot including raw data points and the coefficient panel, using a 0.2 significance level:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># MoPlotting sum</span></span>
 <span><span class="fu"><a href="reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">TRUE</span>, coef <span class="op">=</span> <span class="cn">TRUE</span>, siglevel <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code></pre></div>

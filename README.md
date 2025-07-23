@@ -24,7 +24,7 @@ You can install the development version of MoPlot like so:
 devtools::install_github("Moplot/Moplot")
 ```
 
-## MoPlotOneWay
+## 1. MoPlotOneWay
 
 `MoPlotOneWay()` is a function for visualizing the results of a linear
 model with one categorical predictor and one numeric dependent variable.
@@ -34,11 +34,21 @@ visually emphasizes significant contrasts through colored lines.
 Optionally, the raw data points can be displayed in the plot. A
 secondary panel shows the model coefficients, including standardized
 beta values and effect sizes such as Cohen’s *d*, allowing for a clear
-and informative summary of the model’s findings.
+and informative summary of the model’s findings. `MoPlotOneWay()`
+function supports a variety of contrast coding schemes for categorical
+predictors, including treatment coding (dummy coding), sum to zero
+coding, Helmert coding, reverse Helmert coding, polynomial coding,
+sliding difference coding, and customized coding.
 
-### Treatment coding
+### 1.1 Default Treatment coding
 
-Treatment coding schema, without data and coefficients, sig.level at .05
+Treatment coding, or dummy coding is a common way to represent
+categorical variables in regression models. It transforms a categorical
+predictor with k levels into k − 1 binary (0/1) variables, each
+comparing one level to a reference (baseline) category. The following
+example uses the classic iris dataset with treatment contrasts and shows
+the plot without raw data points or coefficient panel, using a
+significance level of 0.05:
 
 ``` r
 library(MoPlot)
@@ -51,7 +61,7 @@ contrasts(iris$Species) <- contr.treatment(3)
 # Fit the model
 model <- lm(Sepal.Length ~ Species, data = iris)
 
-# MoPlotting treatment
+# MoPlotting
 MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
 #> This graphical representation illustrates the linear model, where
 #>  Species is the categorical predictor (represented on the x-axis with its levels),
@@ -66,7 +76,8 @@ MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
-Treatment coding schema, with data and coefficients, sig.level at .05
+Here is the same plot, but including raw data points and the coefficient
+panel, also with a 0.05 significance level:
 
 ``` r
 # MoPlotting
@@ -84,9 +95,14 @@ MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.05)
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
-### Sum coding
+### 1.2 Sum coding
 
-Sum coding schema, without data and coefficients, sig.level at .1
+Sum coding is another way to represent categorical variables in
+regression models. Unlike treatment coding, sum coding compares each
+level to the overall mean rather than a specific reference group. The
+following example uses again the iris dataset with sum contrasts,
+showing the plot without raw data points or coefficient panel at a
+significance level of 0.1
 
 ``` r
 # Using Sum coding
@@ -95,7 +111,7 @@ contrasts(iris$Species) <- contr.sum(3)
 # Fit the model
 model <- lm(Sepal.Length ~ Species, data = iris)
 
-# MoPlotting sum
+# MoPlotting
 MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.1)
 #> This graphical representation depicts the linear model, with
 #>  Species as the categorical predictor (levels shown on the x-axis),
@@ -110,18 +126,23 @@ MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.1)
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
-Sum coding schema, with data and coefficients, sig.level at .1
+Here is the same plot including raw data points and the coefficient
+panel:
 
 ``` r
-# MoPlotting sum
+# MoPlotting
 MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.1)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
-### Helmert coding
+### 1.3 Helmert coding
 
-Helmert coding schema, without data and coefficients, sig.level at .05
+Helmert coding is a contrast coding scheme where each level of a
+categorical variable is compared to the mean of previous levels. The
+following example uses a generated dataset (using `DatasetOne()`) with
+Helmert contrasts. It first shows a plot without raw data points or
+coefficient panel at a significance level of 0.05:
 
 ``` r
 # Using a custom function to generate data with four groups
@@ -148,7 +169,8 @@ MoPlotOneWay(model, data = FALSE, coef = FALSE, siglevel = 0.05)
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
-Helmert coding schema, with data and coefficients, sig.level at .2
+Here is the same plot including raw data points and the coefficient
+panel, using a 0.2 significance level:
 
 ``` r
 # MoPlotting sum

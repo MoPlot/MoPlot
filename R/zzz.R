@@ -7,3 +7,5 @@ utils::globalVariables(c(
 
 utils::globalVariables(c("sig.level", "segment_color", "lower", "upper", "Gruppo", "Mean", "x1", "y1",
       "p", "fill_color", "Contrast", "Estimate", "d", "Std. Error"))
+utils::globalVariables("peso")
+utils::globalVariables("find_orthogonal_contrasts")
