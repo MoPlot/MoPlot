@@ -40,7 +40,7 @@ GroupContrastCol <- function(contrast_matrix, data, model) {
   result <- list()
   for (interaction in names(grouped_indices)) {
     vars_in_interaction <- unlist(strsplit(interaction, ":"))
-    orthogonal_vars <- find_orthogonal_contrasts(model)
+    orthogonal_vars <- FindOrthogonal(model)
 
     result[[interaction]] <- list(
       columns = grouped_indices[[interaction]],

@@ -103,3 +103,37 @@ Here is the same plot including raw data points and the coefficient panel, using
 # MoPlotting sum
 MoPlotOneWay(model, data = TRUE, coef = TRUE, siglevel = 0.2)
 ```
+
+
+## 2. MoPlotTwoWay
+
+## `MoPlotTwoWay()`
+
+`MoPlotTwoWay()` is a function for visualizing the results of a linear model with two categorical predictors including their interaction, and one numeric dependent variable. It takes as input a model created with `lm()` and produces a plot that highlights marginal means with their associated uncertainty using error bars. Significant interaction contrasts are visually emphasized using colored lines. Optionally, a secondary panel displays the model coefficients, including standardized beta values and effect sizes such as Cohen’s *d*, providing a clear and informative summary of the model's findings.
+
+
+### 1.1 Default Treatment coding
+
+```{r, fig.height=7, fig.width=12, warning=FALSE} 
+#  n <- 200
+# dati <- expand.grid(
+#   Fattore1 = factor(c("A", "B", "C")),
+#   Fattore2 = factor(c("X", "Y"))
+# )
+# 
+# dati <- dati[rep(1:nrow(dati), each = n / nrow(dati)), ]
+# dati$y <- with(dati,
+#                3 +
+#                  ifelse(Fattore1 == "B", 2, ifelse(Fattore1 == "C", -1, 0)) +
+#                  ifelse(Fattore2 == "Y", 1, 0) +
+#                  ifelse(Fattore1 == "C" & Fattore2 == "Y", 2, 0) +
+#                  rnorm(nrow(dati), 0, 1)
+# )
+# 
+# contrasts(dati$Fattore1) <- contr.helmert(3)
+# contrasts(dati$Fattore2) <- contr.sum(2)
+# 
+# modello <- lm(y ~ Fattore1 * Fattore2, data = dati)
+# 
+# MoPlotTwoWay(modello)
+```
