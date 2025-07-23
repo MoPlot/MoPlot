@@ -1,8 +1,9 @@
 pandoc: '3.2'
 pkgdown: 2.1.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-07-23T08:41Z
+articles:
+  One_Way_MoPlot: One_Way_MoPlot.html
+last_built: 2025-07-23T09:05Z
 urls:
   reference: https://github.com/MoPlot/MoPlot/reference
   article: https://github.com/MoPlot/MoPlot/articles
