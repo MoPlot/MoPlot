@@ -6,6 +6,7 @@
 <url><loc>https://github.com/MoPlot/MoPlot/articles/index.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/authors.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/index.html</loc></url>
+<url><loc>https://github.com/MoPlot/MoPlot/reference/ConjPlot.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/ContrastsOnePred.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/CustomDescription.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/CustomPlot.html</loc></url>
@@ -17,7 +18,9 @@
 <url><loc>https://github.com/MoPlot/MoPlot/reference/IntMeanCont.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/InterpretationScore.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/MoPlotOneWay.html</loc></url>
+<url><loc>https://github.com/MoPlot/MoPlot/reference/MoPlotTwoWay.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/ModelContrastTable.html</loc></url>
+<url><loc>https://github.com/MoPlot/MoPlot/reference/PlotContrast.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/ReverseHelmert.html</loc></url>
 <url><loc>https://github.com/MoPlot/MoPlot/reference/index.html</loc></url>
 </urlset>

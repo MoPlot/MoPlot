@@ -386,6 +386,46 @@ example of using custom contrasts:</p>
 <span><span class="co">#&gt; - Group 1: Gr._3 (Mean = 118.41, SE = 5.29, 95% CI = [108.05, 128.78])</span></span>
 <span><span class="co">#&gt; - Group 2: Gr._4 (Mean = 124.73, SE = 4.44, 95% CI = [116.03, 133.43])</span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._3 differs from that of Gr._4.</span></span>
+<span><span class="fu"><a href="../reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">TRUE</span>, coef <span class="op">=</span> <span class="cn">TRUE</span>, siglevel <span class="op">=</span> <span class="fl">0.05</span>, facet.pers <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre>
+<p><img src="One_Way_MoPlot_files/figure-html/unnamed-chunk-14-2.png" width="1152"></p>
+<pre><code><span><span class="co">#&gt; In Contrast_1, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._1, Gr._2 (Mean = 124.83, SE = 3.59, 95% CI = [117.8, 131.86])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._3, Gr._4 (Mean = 121.57, SE = 3.44, 95% CI = [114.82, 128.32])</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._1, Gr._2 differs from that of Gr._3, Gr._4.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; In Contrast_2, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._1 (Mean = 115.78, SE = 4.96, 95% CI = [106.05, 125.5])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._2 (Mean = 133.89, SE = 4.43, 95% CI = [125.21, 142.56])</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._1 differs from that of Gr._2.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; In Contrast_3, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._3 (Mean = 118.41, SE = 5.29, 95% CI = [108.05, 128.78])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._4 (Mean = 124.73, SE = 4.44, 95% CI = [116.03, 133.43])</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._3 differs from that of Gr._4.</span></span></code></pre>
+<p>Without faceting:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/MoPlotOneWay.html">MoPlotOneWay</a></span><span class="op">(</span><span class="va">model</span>, data <span class="op">=</span> <span class="cn">TRUE</span>, coef <span class="op">=</span> <span class="cn">TRUE</span>, siglevel <span class="op">=</span> <span class="fl">0.05</span>, facet.pers <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+<p><img src="One_Way_MoPlot_files/figure-html/unnamed-chunk-15-1.png" width="1152"></p>
+<pre><code><span><span class="co">#&gt; In Contrast_1, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._1, Gr._2 (Mean = 124.83, SE = 3.59, 95% CI = [117.8, 131.86])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._3, Gr._4 (Mean = 121.57, SE = 3.44, 95% CI = [114.82, 128.32])</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._1, Gr._2 differs from that of Gr._3, Gr._4.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; In Contrast_2, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._1 (Mean = 115.78, SE = 4.96, 95% CI = [106.05, 125.5])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._2 (Mean = 133.89, SE = 4.43, 95% CI = [125.21, 142.56])</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._1 differs from that of Gr._2.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; In Contrast_3, the contrast compares:</span></span>
+<span><span class="co">#&gt; - Group 1: Gr._3 (Mean = 118.41, SE = 5.29, 95% CI = [108.05, 128.78])</span></span>
+<span><span class="co">#&gt; - Group 2: Gr._4 (Mean = 124.73, SE = 4.44, 95% CI = [116.03, 133.43])</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; This contrast evaluates whether the mean of Gr._3 differs from that of Gr._4.</span></span></code></pre>
 </div>
 </div>

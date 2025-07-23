@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   One_Way_MoPlot: One_Way_MoPlot.html
-last_built: 2025-07-23T09:05Z
+last_built: 2025-07-23T16:49Z
 urls:
   reference: https://github.com/MoPlot/MoPlot/reference
   article: https://github.com/MoPlot/MoPlot/articles
